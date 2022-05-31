@@ -224,9 +224,10 @@ Below is a flowchart diagram to see how we will be doing the method of execution
 Java plugin code -> UDU Minecraft Server (alpha v0.2.0):  
 This is the plugin that will go on the minecraft server.
 
-Java plugin development is still underway so i will mention only the code that will fetch the required data mentioned in the menthod's explanation.
+Java plugin development is still underway so i will mention only the code that will fetch the required data mentioned in the method's explanation.
 
 ```java
+// Player username
 "username", player.getName()
 
 // Player UUID
@@ -257,4 +258,21 @@ Java plugin development is still underway so i will mention only the code that w
 "jumps", player.getStatistic(Statistic.JUMP)
 ```
 
+The above are the variables that we will be pulling from the server.
 
+MySQL database (alpha v0.2.0):  
+No data collected on this topic just yet, because this method is still under trial and error, we do not have an exact roadmap to follow on this one.
+
+- - -
+<br>
+That is the end of Implementation method 2 
+
+Some of its Pros and Cons:
+
+| PROS          | CONS           |
+|:-------------:|:--------------:|
+| Fastest & Server-side      | Need to run java plugin on Minecraft server. |
+| Can grab any type of available data.      | Limited to Spigot available data.      |
+
+
+`NOTE: This is the best method of approach for this project, there might be other methods, but those are still under research.`
