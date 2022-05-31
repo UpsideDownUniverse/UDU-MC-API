@@ -35,11 +35,13 @@ Read below, this section of the README.md is only to answer simple questions...
 
 - - -
 
-## Method 1 (⚠️ Only `uuid`,`time played`, `username`):
+## Method 1 (⚠️ Only `uuid`, `timeplayed` & `username`):
 In this method, we can only fetch data such as the UUID, time-played and username using the stats file on the Minecraft server, as minecraft servers now store each player's data in the `./world/stats` folder we will be using python to fetch this data and put it onto a MySQL server and send that data to be rendered onto a PHP server. (Note: This is not the final method of usage!)
 
+```
 NOTE: This method is not viable as we are looking to fetch more than just UUID, time-played, and username! 
-But as we are in the development phase let us understand how this works.
+But as we are in the development phase, let us understand how this works.
+```
 
 ### prerequisites
 1. A Minecraft server
@@ -169,4 +171,46 @@ Some of its Pros and Cons:
 
 - - -
 
-`Need to research and add method 2`
+## Method 2 (from `spigot & bukkit`) 🚀:
+
+In this method we will be using the java method of approaching the problem, by using the bukkit and spigot libries to fetch data on the server and upload it to a MySQL database, this data will then be fetched by an `RESTful API server` which will convert the schema into usable json files on rest urls which can be later accessed by the frontend using react API hooks, or something of that manner.
+
+```
+Note: this method will involve creating a java plugin for the minecraft server that will of course run on the minecraft server.
+```
+
+### Prerequisites
+
+1. A Minecraft Server
+
+As said in `Method 1` .
+
+We will need a minecraft server of course because this is a minecraft plugin afterall, we will be using the `1.18.2` version of spigot for development as spigot is the base architecture among almost all vanilla minecraft server distros. (NOTE: UDU MC NETWORK runs on papermc version `1.18.2`) we are using spigot as it will be easier to migrate to paper from here.
+
+2. Database server
+
+As said in `Method 1` .  
+
+We will be using a MySQL database server to store data which is fetched from the minecraft server. We are using MySQL because it is the most common and easily operable database server, but we can switch to GraphQL or MongoDB later on as it will be easier to provide `json` data directly.
+
+We have considered using a MySQL x MongoDB architecture here to eliminate the need for a RESTful API server, but that option is only in theory not practically done.
+
+3. Webserver
+
+As said in `Method 1` .
+
+We will be using `Apache` for this project, but it doesn't really matter which webserver we are using as we are just running the data out for a website to fetch externally in a different or same machine. Apache is fast and offers a lot of features and is easy to setup so we will be using it in this project.
+
+### That is all, actually, this method requires lesser components and gets things done in a simpler faster.
+
+- - - 
+
+### Method of execution
+
+In this method, we will have to make a java plugin to run on the server, the jar plugin will be light-weight because it does not run too many operations on the server.
+
+This plugin should have the following funtions:
+
+- [ ] Ability to run on express.js
+- [ ] Ability to get player name, UUID, stats, health, experience, level, hunger, deaths, mob kills, etc...
+- [ ] Ability to upload that data into a database
