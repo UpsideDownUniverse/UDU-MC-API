@@ -201,7 +201,7 @@ As said in `Method 1` .
 
 We will be using `Apache` for this project, but it doesn't really matter which webserver we are using as we are just running the data out for a website to fetch externally in a different or same machine. Apache is fast and offers a lot of features and is easy to setup so we will be using it in this project.
 
-### That is all, actually, this method requires lesser components and gets things done in a simpler faster.
+### That is all, actually, this method requires lesser components and gets things done in a simpler faster way.
 
 - - - 
 
@@ -211,6 +211,13 @@ In this method, we will have to make a java plugin to run on the server, the jar
 
 This plugin should have the following funtions:
 
-- [ ] Ability to run on express.js
-- [ ] Ability to get player name, UUID, stats, health, experience, level, hunger, deaths, mob kills, etc...
-- [ ] Ability to upload that data into a database
+- [x] Ability to run on express.js
+- [x] Ability to get player name, UUID, stats, health, experience, level, hunger, deaths, mob kills, etc...
+- [x] Ability to upload that data onto a database
+
+After the data has been uploaded onto the database server, the RESTful API app should grab the data from the MySQL server and initialize the API endpoints, we can also do this in a different method, we can let the user, i.e, the browser send an API request to the RESTFUL API server and then the server fetches data from the database.
+
+Below is a flowchart diagram to see how we will be doing the method of execution explained above.
+
+![Method 2 flowchart](https://github.com/UpsideDownUniverse/UDU-MC-API/blob/1387c9a1c5397969369806683f773970a1931778/assets/UDU-MC-API-Method%202.drawio.svg)
+
