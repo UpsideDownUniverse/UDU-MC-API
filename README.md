@@ -219,5 +219,42 @@ After the data has been uploaded onto the database server, the RESTful API app s
 
 Below is a flowchart diagram to see how we will be doing the method of execution explained above.
 
-![Method 2 flowchart](https://github.com/UpsideDownUniverse/UDU-MC-API/blob/1387c9a1c5397969369806683f773970a1931778/assets/UDU-MC-API-Method%202.drawio.svg)
+![Method 2 flowchart](https://raw.githubusercontent.com/UpsideDownUniverse/UDU-MC-API/1387c9a1c5397969369806683f773970a1931778/assets/UDU-MC-API-Method%202.drawio.svg)
+
+Java plugin code -> UDU Minecraft Server (alpha v0.2.0):  
+This is the plugin that will go on the minecraft server.
+
+Java plugin development is still underway so i will mention only the code that will fetch the required data mentioned in the menthod's explanation.
+
+```java
+"username", player.getName()
+
+// Player UUID
+"uuid", player.getUniqueId().toString()
+
+// Player Health
+"health", player.getHealth()
+
+// Player Food
+"food", player.getFoodLevel()
+
+// Player World
+"world", player.getWorld().getName()
+
+// Player Experience
+"experience", player.getExp()
+
+// Player Level
+"level", player.getLevel()
+
+// Player Deaths
+"deaths", player.getStatistic(org.bukkit.Statistic.DEATHS)
+
+// Player Kills
+"kills", player.getStatistic(Statistic.MOB_KILLS)
+
+// Player Jumped
+"jumps", player.getStatistic(Statistic.JUMP)
+```
+
 
